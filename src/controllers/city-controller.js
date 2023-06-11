@@ -24,7 +24,7 @@ const create = async (req,res)=>{
 // delete -> /city/:id ->req.params.id
 const distroy = async (req,res)=>{
     try {
-        const city = await CityService.deleteCity(req.params.id);
+        const city = await cityService.deleteCity(req.params.id);
         return res.status(200).json({
             data: city,
             success : true,
@@ -44,7 +44,7 @@ const distroy = async (req,res)=>{
 // get -> /city/:id ->req.params.id
 const get = async (req,res)=>{
     try {
-        const city = await CityService.deleteCity(req.params.id);
+        const city = await cityService.getCity(req.params.id);
         return res.status(200).json({
             data: city,
             success : true,
@@ -53,7 +53,7 @@ const get = async (req,res)=>{
         })
     } catch (error) {
         console.log(error);
-        return res.ststus(500).json({
+        return res.status(500).json({
             data: {},
             success : false,
             messege : "not able to fetch the city",
@@ -64,8 +64,8 @@ const get = async (req,res)=>{
 // patch -> /city/:id ->req.params.id
 const update = async (req,res)=>{
     try {
-        const city = await CityService.updateCity(req.params.id, req.body);
-        return res.ststus(200).json({
+        const city = await cityService.updateCity(req.params.id, req.body);
+        return res.status(200).json({
             data: city,
             success : true,
             messege : "Succcessfully updated the city",
@@ -73,7 +73,7 @@ const update = async (req,res)=>{
         })
     } catch (error) {
         console.log(error);
-        return res.ststus(500).json({
+        return res.status(500).json({
             data: {},
             success : false,
             messege : "not able to update the city",
