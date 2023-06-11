@@ -1,11 +1,11 @@
 const {CityService } = require('../services/index');
 
-const CityService = new CityService();
+const cityService = new CityService();
 
 const create = async (req,res)=>{
     try {
-        const city = await CityService.createCity(req.body);
-        return res.ststus(201).json({
+        const city = await cityService.createCity(req.body);
+        return res.status(201).json({
             data: city,
             success : true,
             messege : "Succcessfully created a city",
@@ -13,7 +13,7 @@ const create = async (req,res)=>{
         })
     } catch (error) {
         console.log(error);
-        return res.ststus(500).json({
+        return res.status(500).json({
             data: {},
             success : false,
             messege : "not able to create a city",
@@ -25,7 +25,7 @@ const create = async (req,res)=>{
 const distroy = async (req,res)=>{
     try {
         const city = await CityService.deleteCity(req.params.id);
-        return res.ststus(200).json({
+        return res.status(200).json({
             data: city,
             success : true,
             messege : "Succcessfully deleted a city",
@@ -33,7 +33,7 @@ const distroy = async (req,res)=>{
         })
     } catch (error) {
         console.log(error);
-        return res.ststus(500).json({
+        return res.status(500).json({
             data: {},
             success : false,
             messege : "not able to delete the city",
@@ -45,7 +45,7 @@ const distroy = async (req,res)=>{
 const get = async (req,res)=>{
     try {
         const city = await CityService.deleteCity(req.params.id);
-        return res.ststus(200).json({
+        return res.status(200).json({
             data: city,
             success : true,
             messege : "Succcessfully fetched a city",
