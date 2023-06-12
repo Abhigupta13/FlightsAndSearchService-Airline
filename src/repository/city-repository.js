@@ -26,11 +26,16 @@ const {City} = require('../models/index');
     }
     async updateCity(cityId ,data){  // data= {name : "prayagraj"}
         try {
-            const city = await City.update(data,{
-                 where: {
-                    id : cityId
-                 }   
-            });
+            // the first approach also work but will not return updated object
+            // const city = await City.update(data,{
+            //      where: {
+            //         id : cityId
+            //      }   
+            // });
+            // for getting updated data we use below approach
+            const city = await City.findByPk(cityId);
+            city.name =data.name;
+            await city.save();
             return city;
             
         } catch (error) {
@@ -41,7 +46,7 @@ const {City} = require('../models/index');
 
     async getCity(cityId){
         try {
-            const city=await City.findByPk(cityId);
+            const city = await City.findByPk(cityId);
             return city;
         } catch (error) {
             console.log("Something went wrong in the repository layer");
