@@ -19,7 +19,6 @@ const {City} = require('../models/index');
             console.log("Something went wrong in the repository layer");
             throw {error};
         }
-
     }
     async deleteCity(cityId ){
         try{
