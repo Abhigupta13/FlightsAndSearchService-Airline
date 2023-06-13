@@ -1,0 +1,4 @@
+Task 1. Expose an api that can add multiple cities in one go 
+        (maybe pass an array in request body ,no loops at all).
+Task 2. Write a crud for airports
+Task 3. Add an api in city resource for getting all the airports of a city
