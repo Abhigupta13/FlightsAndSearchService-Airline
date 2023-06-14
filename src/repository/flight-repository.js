@@ -2,7 +2,8 @@ const {Flights} = require('../models/index');
 class FlightRepository{
     async createFlight(data){
         try {
-            const flight =await Flights.create(data )
+            const flight =await Flights.create(data);
+            return flight;
         } catch (error) {
             console.log("Something went wrong in the flight-repository layer");
             throw{error};
