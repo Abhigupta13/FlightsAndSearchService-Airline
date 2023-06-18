@@ -49,6 +49,7 @@ async updateFlight(flightId, data) {
        return response;
     } catch (error) {
         console.log("Something went wrong at service layer");
+        
         throw {error};
     }
 }
