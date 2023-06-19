@@ -44,7 +44,8 @@ class FlightRepository{
     }
     async getFlight(flightId){
         try {
-            const flight =await Flights.findByPk(flightId);
+            const flight = await Flights.findByPk(flightId);
+            console.log(flight);
             return flight;
         } catch (error) {
             console.log("Something went wrong in the flight-repository layer");
