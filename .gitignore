@@ -1,4 +1,4 @@
 node_modules/
-.env
-src/config/config.json
+# .env
+# src/config/config.json
 # HomeWork.txt
